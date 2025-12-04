@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRZ STORE | Rocket League</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /*
+        * 1. الألوان الأساسية والثيم (الذهبي/الأزرق النيون) 
+        */
+        :root {
+            --trl-primary: #007bff; /* أزرق نيون */
+            --trl-secondary: #ffc107; /* ذهبي/أصفر */
+            --trl-dark: #0f172a; /* خلفية داكنة جداً */
+            --trl-card-bg: #1e293b;
+        }
+        body {
+            background-color: var(--trl-dark);
+            color: #ffffff;
+            font-family: 'Bahnschrift', sans-serif;
+        }
+        /*
+        * 2. تصميم قسم البطل (HERO) الملحمي 
+        */
+        .hero-section {
+            /* 💥 مطلوب منك: ضع رابط صورة خلفية قوية هنا 💥 */
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('صورة TRZ.jpg') no-repeat center center;
+            background-size: cover;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px var(--trl-primary), 0 0 20px var(--trl-primary);
+        }
+        /*
+        * 3. تصميم بطاقات الكريدت (Credit Cards) 
+        */
+        .credit-card {
+            background-color: var(--trl-card-bg);
+            border: 3px solid var(--trl-primary);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .credit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 123, 255, 0.5);
+        }
+        .credit-card .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--trl-secondary);
+        }
+        .badge-best-value {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px 15px;
+            background-color: #dc3545;
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+            font-weight: bold;
+        }
+        /* 4. تنسيق عناصر السلة المنبثقة */
+        .modal-content {
+            background-color: var(--trl-card-bg) !important;
+            color: white;
+        }
+        /* 💥 التعديل هنا: لتحديد حجم صور الباقات 💥 */
+        .package-img {
+            width: 350px !important; /* إضافة !important */
+            height: 350px !important; /* إضافة !important */
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        /* 💥 أضف هذا التنسيق هنا: لتنسيق أيقونة العملة بجانب السعر 💥 */
+        .currency-icon {
+            width: 30px; /* حجم مناسب لأيقونة العملة */
+            height: 30px;
+            object-fit: contain;
+            vertical-align: middle; 
+            margin-right: 5px; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(15, 23, 42, 0.95);">
+            <div class="container">
+                <a class="navbar-brand hero-title fs-3" href="#" style="color: var(--trl-primary);"><i class="fas fa-crown me-2"></i> TRZ STORE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-white" href="#packages">شراء الكريدت</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#trust">ثقة العميل</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#faq">الأسئلة الشائعة</a></li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-warning py-1 px-3 ms-3" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                                <i class="fas fa-shopping-cart"></i> السلة (<span id="cart-count">0</span>)
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-primary py-1 px-3 ms-2" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                <i class="fas fa-user"></i> دخول
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title text-uppercase">TRZ STORE</h1>
+                <p class="lead mb-4 fs-4">من هنا تبدأ المتعة</p>
+                <a href="#packages" class="btn btn-primary btn-lg px-5 py-3 me-3 text-uppercase fw-bold shadow-lg">
+                    <i class="fas fa-bolt me-2"></i> ابدأ الشراء الآن
+                </a>
+            </div>
+        </section>
+        
+        <section id="packages" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 text-uppercase" style="color: var(--trl-secondary);">اختر باكج الكريدت الذي يناسبك</h2>
+                
+                <div class="row g-4 justify-content-center">
+                    
+                    <div class="col-md-4">
+                        <div class="credit-card text-center">
+                            <img src="كريدت.jpg" alt="500 Credit Pack" class="package-img mb-3">
+                            <h3 class="mb-3">باكج المبتدئ</h3>
+                            <p class="fs-1 fw-bold text-primary">500</p>
+                            <p class="mb-4">كريدت</p>
+                            <div class="price mb-4" id="price-500">
+                         <span id="price-500-value"></span> 
+                         <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
+                        </div>
+                            <button class="btn btn-primary btn-lg w-100 buy-btn" data-credits="500">شراء سريع</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="credit-card text-center">
+                            <div class="badge-best-value">الأكثر مبيعاً!</div>
+                            <img src="كريدت.jpg" alt="5000 Credit Pack" class="package-img mb-3">
+                            <h3 class="mb-3 text-warning">باكج الأبطال</h3>
+                            <p class="fs-1 fw-bold text-primary">5000</p>
+                            <p class="mb-4">كريدت</p>
+                           <div class="price mb-4" id="price-500">
+                         <span id="price-5000-value"></span> 
+                         <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
+                        </div>
+                            <button class="btn btn-warning btn-lg w-100 buy-btn" data-credits="5000">اغتنم الفرصة</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="credit-card text-center">
+                            <img src="كريدت.jpg" alt="10000 Credit Pack" class="package-img mb-3">
+                            <h3 class="mb-3">باكج الأساطير</h3>
+                            <p class="fs-1 fw-bold text-primary">10,000+</p>
+                            <p class="mb-4">كريدت</p>
+                            <div class="price mb-4" id="price-10000">
+                         <span id="price-10000-value"></span> 
+                         <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
+                        </div>
+                            <button class="btn btn-primary btn-lg w-100 buy-btn" data-credits="10000">شراء الأسطورة</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="trust" class="py-5 bg-dark">
+            <div class="container text-center">
+                <h2 class="mb-5 text-uppercase" style="color: var(--trl-primary);">%تسليم فوري موثوق 100</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <i class="fas fa-stopwatch fa-4x text-success mb-3"></i>
+                        <h4>تسليم فائق السرعة</h4>
+                        <p class="text-white-50">يتم إرسال الكريدت إلى حسابك فور تأكيد عملية الدفع.</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <i class="fas fa-lock fa-4x text-info mb-3"></i>
+                        <h4>أمان وضمان كامل</h4>
+                        <p class="text-white-50">جميع المعاملات آمنة ومضمونة ضد أي حظر أو مشكلة.</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <i class="fas fa-headset fa-4x text-warning mb-3"></i>
+                        <h4>دعم فني 24/7</h4>
+                        <p class="text-white-50">فريقنا جاهز للمساعدة في أي وقت عبر الدردشة المباشرة.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="faq" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4 text-uppercase" style="color: var(--trl-secondary);">الأسئلة الشائعة</h2>
+                <div class="accordion" id="faqAccordion">
+                    
+                    <div class="accordion-item" style="background-color: var(--trl-card-bg); border-color: var(--trl-primary);">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" style="background-color: var(--trl-card-bg);">
+                                كيف يتم توصيل الكريدت لي؟
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-white-50">
+                                يتم التوصيل عن طريق **نظام التبادل داخل اللعبة (In-Game Trade)**. بعد إتمام الدفع، سيتواصل معك أحد تجارنا لإتمام عملية التبادل في أقل من 5 دقائق.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item" style="background-color: var(--trl-card-bg); border-color: var(--trl-primary);">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" style="background-color: var(--trl-card-bg);">
+                                ما هي طرق الدفع المتاحة؟
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-white-50">
+                                ندعم جميع وسائل الدفع الرئيسية: البطاقات الائتمانية (Visa/MasterCard)، PayPal، والتحويلات المحلية.
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: var(--trl-card-bg); border: 2px solid var(--trl-primary);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">تسجيل الدخول إلى TRZ STORE</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="usernameInput" class="form-label">اسم المستخدم أو الإيميل</label>
+                            <input type="text" class="form-control bg-dark text-white" id="usernameInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="passwordInput" class="form-label">كلمة المرور</label>
+                            <input type="password" class="form-control bg-dark text-white" id="passwordInput" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">دخول</button>
+                    </form>
+                    <p class="mt-3 text-center">ليس لديك حساب؟ <a href="#" id="showRegister" class="text-warning">سجل الآن</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="background-color: var(--trl-card-bg); border: 2px solid var(--trl-primary);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel"><i class="fas fa-shopping-cart me-2"></i> سلة مشترياتك</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items-list" class="list-group">
+                        <p class="text-center text-white-50" id="empty-cart-message">سلتك فارغة حاليًا.</p>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4 border-top pt-3">
+                        <h4 class="text-warning">المجموع الكلي:</h4>
+                        <h4 class="text-warning" id="cart-total">0 ر.س</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">متابعة التسوق</button>
+                    <button type="button" class="btn btn-success" id="checkout-btn">اتمام الشراء <i class="fas fa-arrow-left"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer id="contact" class="bg-dark text-white p-5 text-center" style="border-top: 5px solid var(--trl-secondary);">
+        <div class="container">
+            <h4 class="mb-4 text-warning">TRZ STORE | متجر الكريدت</h4>
+            <div class="mb-4">
+                <a href="https://discord.gg/MSK8JDmrCH" class="text-white mx-3"><i class="fab fa-discord fa-2x"></i></a>
+            </div>
+            <p class="text-white-50">&copy; 2025 TRZ STORE. جميع الحقوق محفوظة. الأسعار قابلة للتغيير.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        /*
+        * 1. تعريف الأسعار وحالة السلة
+        */
+        const creditPrices = {
+            '500': { price: 10 },
+            '5000': { price: 50 }, 
+            '10000': { price: 90 } 
+        };
+        
+        let cart = []; // مصفوفة لتخزين عناصر السلة
+        
+        /*
+        * 2. دالة تحميل الأسعار في الواجهة
+        */
+        function loadPrices() {
+            document.getElementById('price-500-value').textContent = creditPrices['500'].price;
+            document.getElementById('price-5000-value').textContent = creditPrices['5000'].price;
+            document.getElementById('price-10000-value').textContent = creditPrices['10000'].price;
+        }
+
+        /*
+        * 3. دالة إضافة منتج للسلة 
+        */
+        function addToCart(credits, price) {
+            const itemName = `${credits} كريدت`;
+            
+            // تحقق إن كان المنتج موجوداً بالفعل لزيادة الكمية
+            const existingItem = cart.find(item => item.credits === credits);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ credits, price, quantity: 1, name: itemName });
+            }
+            
+            updateCartUI();
+        }
+
+        /*
+        * 4. دالة تحديث واجهة السلة والمجموع
+        */
+        function updateCartUI() {
+            const list = document.getElementById('cart-items-list');
+            const totalElement = document.getElementById('cart-total');
+            const countElement = document.getElementById('cart-count');
+            
+            list.innerHTML = ''; // تفريغ القائمة
+            let total = 0;
+            let itemCount = 0;
+            
+            if (cart.length === 0) {
+                list.innerHTML = '<p class="text-center text-white-50" id="empty-cart-message">سلتك فارغة حاليًا.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    itemCount += item.quantity;
+
+                    const itemHtml = `
+                        <div class="list-group-item d-flex justify-content-between align-items-center" style="background-color: #2b3543; border-color: #3e4a5c;">
+                            <span class="text-white">${item.name} (${item.quantity}x)</span>
+                            <div class="d-flex align-items-center">
+                                <span class="text-warning me-3">${itemTotal} ر.س</span>
+                                <button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">إزالة</button>
+                            </div>
+                        </div>
+                    `;
+                    list.innerHTML += itemHtml;
+                });
+            }
+            
+           // ... (باقي كود الدالة)
+            // 💥 مطلوب: ضع رابط صورة الريال هنا أيضاً 💥
+            totalElement.innerHTML = `${total} <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">`;
+            countElement.innerHTML = itemCount;
+        }
+        
+        /*
+        * 5. دالة إزالة منتج من السلة
+        */
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        /*
+        * 6. معالجة أحداث النقر وزر الشراء والدخول
+        */
+        function setupEventListeners() {
+            // حدث النقر على أزرار "شراء سريع"
+            document.querySelectorAll('.buy-btn').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const credits = event.target.getAttribute('data-credits');
+                    const itemData = creditPrices[credits];
+                    
+                    if (itemData) {
+                        addToCart(credits, itemData.price);
+                        // يفتح السلة تلقائيًا بعد الإضافة
+                        const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+                        cartModal.show();
+                    } else {
+                        alert('خطأ: لم يتم العثور على سعر هذا الباكج!');
+                    }
+                });
+            });
+            
+            // محاكاة عملية الدفع (تفتح نافذة الدخول أولاً)
+            document.getElementById('checkout-btn').addEventListener('click', () => {
+                if (cart.length > 0) {
+                    alert('لإتمام الشراء: نحتاج إلى تسجيل دخولك.');
+                    // أغلق سلة المشتريات وافتح نافذة الدخول
+                    const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+                    cartModal.hide();
+                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                    loginModal.show();
+                } else {
+                    alert('سلة المشتريات فارغة! يرجى إضافة عناصر أولاً.');
+                }
+            });
+
+            // محاكاة تسجيل الدخول/التسجيل
+            document.getElementById('loginForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('تم تسجيل الدخول بنجاح! الآن يمكنك إتمام الدفع (لو كنا موقع حقيقي).');
+                const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                loginModal.hide();
+                // هنا يتم توجيه المستخدم لصفحة الدفع الحقيقية
+            });
+        }
+        
+        // تشغيل الدوال عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPrices();
+            setupEventListeners();
+        });
+    </script>
+</body>
+</html>
