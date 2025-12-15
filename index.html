@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRZ STORE | Rocket League</title>
+    <title>TRZ STORE</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
-        /*
-        * 1. الألوان الأساسية والثيم (الذهبي/الأزرق النيون) 
-        */
         :root {
             --trl-primary: #007bff; /* أزرق نيون */
             --trl-secondary: #ffc107; /* ذهبي/أصفر */
-            --trl-dark: #0f172a; /* خلفية داكنة جداً */
+            --trl-dark: #0f172a; 
             --trl-card-bg: #1e293b;
         }
         body {
@@ -23,9 +20,6 @@
             color: #ffffff;
             font-family: 'Bahnschrift', sans-serif;
         }
-        /*
-        * 2. تصميم قسم البطل (HERO) الملحمي 
-        */
         .hero-section {
             /* 💥 مطلوب منك: ضع رابط صورة خلفية قوية هنا 💥 */
             background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('صورة TRZ.jpg') no-repeat center center;
@@ -40,18 +34,6 @@
             font-size: 4rem;
             font-weight: 700;
             text-shadow: 0 0 10px var(--trl-primary), 0 0 20px var(--trl-primary);
-        }
-        /*
-        * 3. تصميم بطاقات الكريدت (Credit Cards) 
-        */
-        .credit-card {
-            background-color: var(--trl-card-bg);
-            border: 3px solid var(--trl-primary);
-            border-radius: 12px;
-            padding: 30px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
         }
         .credit-card:hover {
             transform: translateY(-10px);
@@ -72,25 +54,37 @@
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
             font-weight: bold;
         }
-        /* 4. تنسيق عناصر السلة المنبثقة */
         .modal-content {
             background-color: var(--trl-card-bg) !important;
             color: white;
         }
-        /* 💥 التعديل هنا: لتحديد حجم صور الباقات 💥 */
+
+        /* 💥 مقاس صور الباقات 150 بكسل 💥 */
         .package-img {
-            width: 350px !important; /* إضافة !important */
-            height: 350px !important; /* إضافة !important */
+            width: 350px !important; 
+            height: 350px !important; 
             object-fit: contain;
             border-radius: 8px;
         }
-        /* 💥 أضف هذا التنسيق هنا: لتنسيق أيقونة العملة بجانب السعر 💥 */
+        
+        /* 💥 تنسيق أيقونة العملة - اللون الأبيض 💥 */
         .currency-icon {
-            width: 30px; /* حجم مناسب لأيقونة العملة */
+            width: 30px; 
             height: 30px;
             object-fit: contain;
             vertical-align: middle; 
             margin-right: 5px; 
+            filter: invert(100%); /* اللون الأبيض */
+        }
+
+        .credit-card {
+            background-color: var(--trl-card-bg);
+            border: 3px solid var(--trl-primary);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -110,14 +104,8 @@
                         <li class="nav-item"><a class="nav-link text-white" href="#faq">الأسئلة الشائعة</a></li>
                         
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-warning py-1 px-3 ms-3" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <a class="nav-link btn btn-primary py-1 px-3 ms-3" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
                                 <i class="fas fa-shopping-cart"></i> السلة (<span id="cart-count">0</span>)
-                            </a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-primary py-1 px-3 ms-2" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
-                                <i class="fas fa-user"></i> دخول
                             </a>
                         </li>
                     </ul>
@@ -129,8 +117,8 @@
     <main>
         <section class="hero-section">
             <div class="container">
-                <h1 class="hero-title text-uppercase">TRZ STORE</h1>
-                <p class="lead mb-4 fs-4">من هنا تبدأ المتعة</p>
+                <h1 class="hero-title text-uppercase">قوتك النارية تبدأ من هنا</h1>
+                <p class="lead mb-4 fs-4">أسرع وأكثر متجر موثوق لكريدت Rocket League. أسعار أسطورية، تسليم فوري.</p>
                 <a href="#packages" class="btn btn-primary btn-lg px-5 py-3 me-3 text-uppercase fw-bold shadow-lg">
                     <i class="fas fa-bolt me-2"></i> ابدأ الشراء الآن
                 </a>
@@ -146,13 +134,13 @@
                     <div class="col-md-4">
                         <div class="credit-card text-center">
                             <img src="كريدت.jpg" alt="500 Credit Pack" class="package-img mb-3">
-                            <h3 class="mb-3">باكج المبتدئ</h3>
+                            <h3 class="mb-3">بكج المبتدئ</h3>
                             <p class="fs-1 fw-bold text-primary">500</p>
                             <p class="mb-4">كريدت</p>
                             <div class="price mb-4" id="price-500">
-                         <span id="price-500-value"></span> 
-                         <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
-                        </div>
+                                <span id="price-500-value"></span> 
+                                <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
+                            </div>
                             <button class="btn btn-primary btn-lg w-100 buy-btn" data-credits="500">شراء سريع</button>
                         </div>
                     </div>
@@ -161,13 +149,13 @@
                         <div class="credit-card text-center">
                             <div class="badge-best-value">الأكثر مبيعاً!</div>
                             <img src="كريدت.jpg" alt="5000 Credit Pack" class="package-img mb-3">
-                            <h3 class="mb-3 text-warning">باكج الأبطال</h3>
+                            <h3 class="mb-3 text-warning">بكج الأبطال</h3>
                             <p class="fs-1 fw-bold text-primary">5000</p>
                             <p class="mb-4">كريدت</p>
-                           <div class="price mb-4" id="price-500">
-                         <span id="price-5000-value"></span> 
-                         <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
-                        </div>
+                            <div class="price mb-4" id="price-5000">
+                                <span id="price-5000-value"></span>
+                                <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
+                            </div>
                             <button class="btn btn-warning btn-lg w-100 buy-btn" data-credits="5000">اغتنم الفرصة</button>
                         </div>
                     </div>
@@ -175,13 +163,13 @@
                     <div class="col-md-4">
                         <div class="credit-card text-center">
                             <img src="كريدت.jpg" alt="10000 Credit Pack" class="package-img mb-3">
-                            <h3 class="mb-3">باكج الأساطير</h3>
+                            <h3 class="mb-3">بكج الأساطير</h3>
                             <p class="fs-1 fw-bold text-primary">10,000+</p>
                             <p class="mb-4">كريدت</p>
                             <div class="price mb-4" id="price-10000">
-                         <span id="price-10000-value"></span> 
-                         <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
-                        </div>
+                                <span id="price-10000-value"></span>
+                                <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
+                            </div>
                             <button class="btn btn-primary btn-lg w-100 buy-btn" data-credits="10000">شراء الأسطورة</button>
                         </div>
                     </div>
@@ -192,7 +180,7 @@
 
         <section id="trust" class="py-5 bg-dark">
             <div class="container text-center">
-                <h2 class="mb-5 text-uppercase" style="color: var(--trl-primary);">%تسليم فوري موثوق 100</h2>
+                <h2 class="mb-5 text-uppercase" style="color: var(--trl-primary);">تسليم فوري وموثوق 100%</h2>
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <i class="fas fa-stopwatch fa-4x text-success mb-3"></i>
@@ -243,32 +231,29 @@
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
             </div>
         </section>
         
     </main>
     
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal fade" id="clientDetailsModal" tabindex="-1" aria-labelledby="clientDetailsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="background-color: var(--trl-card-bg); border: 2px solid var(--trl-primary);">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">تسجيل الدخول إلى TRZ STORE</h5>
+                    <h5 class="modal-title" id="clientDetailsModalLabel"><i class="fas fa-user-tag me-2"></i> معلومات إتمام الطلب</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="loginForm">
+                    <form id="clientDetailsForm">
                         <div class="mb-3">
-                            <label for="usernameInput" class="form-label">اسم المستخدم أو الإيميل</label>
-                            <input type="text" class="form-control bg-dark text-white" id="usernameInput" required>
+                            <label for="clientNameInput" class="form-label">اسمك أو اسم الديسكورد (للتواصل)</label>
+                            <input type="text" class="form-control bg-dark text-white" id="clientNameInput" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="passwordInput" class="form-label">كلمة المرور</label>
-                            <input type="password" class="form-control bg-dark text-white" id="passwordInput" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100 mt-2">دخول</button>
+                        
+                        <button type="submit" class="btn btn-warning w-100 mt-2">تأكيد الطلب والدفع</button>
                     </form>
-                    <p class="mt-3 text-center">ليس لديك حساب؟ <a href="#" id="showRegister" class="text-warning">سجل الآن</a></p>
+                    <p class="mt-3 text-center text-white-50">بعد التأكيد، سيظهر لك رقم مرجعي للتواصل عبر الديسكورد.</p>
                 </div>
             </div>
         </div>
@@ -287,7 +272,7 @@
                     </div>
                     <div class="d-flex justify-content-between mt-4 border-top pt-3">
                         <h4 class="text-warning">المجموع الكلي:</h4>
-                        <h4 class="text-warning" id="cart-total">0 ر.س</h4>
+                        <h4 class="text-warning" id="cart-total">0 <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon"></h4>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -303,7 +288,7 @@
         <div class="container">
             <h4 class="mb-4 text-warning">TRZ STORE | متجر الكريدت</h4>
             <div class="mb-4">
-                <a href="https://discord.gg/MSK8JDmrCH" class="text-white mx-3"><i class="fab fa-discord fa-2x"></i></a>
+                <a href="[ضع رابط دعوة سيرفر ديسكورد هنا]" class="text-white mx-3"><i class="fab fa-discord fa-2x"></i></a>
             </div>
             <p class="text-white-50">&copy; 2025 TRZ STORE. جميع الحقوق محفوظة. الأسعار قابلة للتغيير.</p>
         </div>
@@ -321,10 +306,26 @@
             '10000': { price: 90 } 
         };
         
-        let cart = []; // مصفوفة لتخزين عناصر السلة
+        let cart = []; 
+
+        // 🛑 متغير الويب هوك: يجب استبدال هذا الرابط برابطك الحقيقي 🛑
+        const DISCORD_WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1450196567473524927/4VgecsNoe5ghozrmixTNcD6wmPUaIcIZL6Cs4vZCdQb3I6e7z-noQg4AlmnQh_V0ILsl'; 
         
         /*
-        * 2. دالة تحميل الأسعار في الواجهة
+        * دالة توليد رقم مرجعي عشوائي للطلب
+        */
+        function generateReferenceNumber() {
+            // توليد رقم مرجعي فريد يتكون من 8 أحرف وأرقام
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let ref = 'TRZ-';
+            for (let i = 0; i < 8; i++) {
+                ref += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return ref;
+        }
+
+        /*
+        * دالة تحميل الأسعار في الواجهة
         */
         function loadPrices() {
             document.getElementById('price-500-value').textContent = creditPrices['500'].price;
@@ -333,12 +334,11 @@
         }
 
         /*
-        * 3. دالة إضافة منتج للسلة 
+        * دالة إضافة منتج للسلة 
         */
         function addToCart(credits, price) {
             const itemName = `${credits} كريدت`;
             
-            // تحقق إن كان المنتج موجوداً بالفعل لزيادة الكمية
             const existingItem = cart.find(item => item.credits === credits);
             
             if (existingItem) {
@@ -351,14 +351,14 @@
         }
 
         /*
-        * 4. دالة تحديث واجهة السلة والمجموع
+        * دالة تحديث واجهة السلة والمجموع
         */
         function updateCartUI() {
             const list = document.getElementById('cart-items-list');
             const totalElement = document.getElementById('cart-total');
             const countElement = document.getElementById('cart-count');
             
-            list.innerHTML = ''; // تفريغ القائمة
+            list.innerHTML = ''; 
             let total = 0;
             let itemCount = 0;
             
@@ -374,7 +374,7 @@
                         <div class="list-group-item d-flex justify-content-between align-items-center" style="background-color: #2b3543; border-color: #3e4a5c;">
                             <span class="text-white">${item.name} (${item.quantity}x)</span>
                             <div class="d-flex align-items-center">
-                                <span class="text-warning me-3">${itemTotal} ر.س</span>
+                                <span class="text-warning me-3">${itemTotal} ريال</span>
                                 <button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">إزالة</button>
                             </div>
                         </div>
@@ -383,14 +383,13 @@
                 });
             }
             
-           // ... (باقي كود الدالة)
-            // 💥 مطلوب: ضع رابط صورة الريال هنا أيضاً 💥
+            // تحديث الإجمالي في السلة بصورة العملة
             totalElement.innerHTML = `${total} <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">`;
             countElement.innerHTML = itemCount;
         }
         
         /*
-        * 5. دالة إزالة منتج من السلة
+        * دالة إزالة منتج من السلة
         */
         function removeFromCart(index) {
             cart.splice(index, 1);
@@ -398,9 +397,64 @@
         }
 
         /*
-        * 6. معالجة أحداث النقر وزر الشراء والدخول
+        * 6. وظيفة إرسال الويب هوك للديسكورد
+        */
+        const sendDiscordWebhook = (name, referenceNumber) => {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const cartDetails = cart.map(item => 
+                `${item.name} (${item.quantity}x) بسعر ${item.price * item.quantity} ريال`).join('\n');
+
+            const payload = {
+                username: "طلبات عملاء TRZ STORE",
+                embeds: [{
+                    title: `✅ طلب جديد: #${referenceNumber}`,
+                    description: `**تفاصيل العميل:**\n> الاسم/الديسكورد: ${name}\n\n**المنتجات المطلوبة:**\n${cartDetails}\n\n**الإجمالي:** ${total} ريال`,
+                    color: 3447003, // لون أزرق
+                    footer: { text: "الرجاء التواصل مع العميل عبر الديسكورد باستخدام الرقم المرجعي لإتمام الدفع والتسليم." }
+                }]
+            };
+
+            fetch(DISCORD_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(response => {
+                if (response.ok) {
+                    alert(`تم تأكيد طلبك بنجاح! رقمك المرجعي هو: ${referenceNumber}\nالرجاء التواصل معنا عبر الديسكورد وإرسال هذا الرقم لإتمام عملية الدفع والتسليم.`);
+                    // مسح السلة بعد نجاح الإرسال
+                    cart = [];
+                    updateCartUI(); 
+                } else {
+                    alert('حدث خطأ في إرسال الطلب، يرجى التواصل مباشرة مع الإدارة وإعطائهم رقم الطلب: ' + referenceNumber);
+                }
+            }).catch(error => {
+                console.error('Error sending webhook:', error);
+                alert('حدث خطأ فني، يرجى التواصل مباشرة لإتمام طلبك.');
+            });
+        };
+
+
+        /*
+        * 7. معالجة أحداث النقر
         */
         function setupEventListeners() {
+            
+            // عند الضغط على زر "تأكيد الطلب والدفع" في النافذة الجديدة
+            document.getElementById('clientDetailsForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const clientName = document.getElementById('clientNameInput').value;
+                const referenceNumber = generateReferenceNumber(); // توليد رقم مرجعي
+                
+                // إغلاق نافذة البيانات
+                const detailsModal = bootstrap.Modal.getInstance(document.getElementById('clientDetailsModal'));
+                detailsModal.hide();
+
+                // إرسال الطلب عبر الويب هوك مع الرقم المرجعي
+                sendDiscordWebhook(clientName, referenceNumber); 
+            });
+
+
             // حدث النقر على أزرار "شراء سريع"
             document.querySelectorAll('.buy-btn').forEach(button => {
                 button.addEventListener('click', (event) => {
@@ -418,27 +472,18 @@
                 });
             });
             
-            // محاكاة عملية الدفع (تفتح نافذة الدخول أولاً)
+            // عند الضغط على "اتمام الشراء" في السلة (يفتح نافذة بيانات العميل)
             document.getElementById('checkout-btn').addEventListener('click', () => {
                 if (cart.length > 0) {
-                    alert('لإتمام الشراء: نحتاج إلى تسجيل دخولك.');
-                    // أغلق سلة المشتريات وافتح نافذة الدخول
                     const cartModal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
                     cartModal.hide();
-                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-                    loginModal.show();
+                    
+                    // فتح نافذة إدخال بيانات العميل
+                    const detailsModal = new bootstrap.Modal(document.getElementById('clientDetailsModal'));
+                    detailsModal.show();
                 } else {
                     alert('سلة المشتريات فارغة! يرجى إضافة عناصر أولاً.');
                 }
-            });
-
-            // محاكاة تسجيل الدخول/التسجيل
-            document.getElementById('loginForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('تم تسجيل الدخول بنجاح! الآن يمكنك إتمام الدفع (لو كنا موقع حقيقي).');
-                const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
-                loginModal.hide();
-                // هنا يتم توجيه المستخدم لصفحة الدفع الحقيقية
             });
         }
         
