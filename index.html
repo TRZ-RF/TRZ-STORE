@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRZ STORE</title>
+    <title>TRZ STORE | Rocket League</title>
+
+    <link rel="icon" type="image/png" href="صورة TRZ.jpg" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -76,6 +78,17 @@
             margin-right: 5px; 
             filter: invert(100%); /* اللون الأبيض */
         }
+        
+        /* تنسيق خاص للرقم المرجعي */
+        #reference-number-display {
+            background-color: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--trl-secondary);
+            border: 1px dashed var(--trl-primary);
+        }
 
         .credit-card {
             background-color: var(--trl-card-bg);
@@ -117,7 +130,7 @@
     <main>
         <section class="hero-section">
             <div class="container">
-                <h1 class="hero-title text-uppercase">قوتك النارية تبدأ من هنا</h1>
+                <h1 class="hero-title text-uppercase">TRZ STORE</h1>
                 <p class="lead mb-4 fs-4">أسرع وأكثر متجر موثوق لكريدت Rocket League. أسعار أسطورية، تسليم فوري.</p>
                 <a href="#packages" class="btn btn-primary btn-lg px-5 py-3 me-3 text-uppercase fw-bold shadow-lg">
                     <i class="fas fa-bolt me-2"></i> ابدأ الشراء الآن
@@ -127,7 +140,7 @@
         
         <section id="packages" class="py-5">
             <div class="container">
-                <h2 class="text-center mb-5 text-uppercase" style="color: var(--trl-secondary);">اختر باكج الكريدت الذي يناسبك</h2>
+                <h2 class="text-center mb-5 text-uppercase" style="color: var(--trl-secondary);">اختر بكج الكريدت الذي يناسبك</h2>
                 
                 <div class="row g-4 justify-content-center">
                     
@@ -141,7 +154,7 @@
                                 <span id="price-500-value"></span> 
                                 <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
                             </div>
-                            <button class="btn btn-primary btn-lg w-100 buy-btn" data-credits="500">شراء سريع</button>
+                            <button class="btn btn-primary btn-lg w-100 buy-btn" data-credits="500">أضف الى السلة</button>
                         </div>
                     </div>
 
@@ -156,7 +169,7 @@
                                 <span id="price-5000-value"></span>
                                 <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
                             </div>
-                            <button class="btn btn-warning btn-lg w-100 buy-btn" data-credits="5000">اغتنم الفرصة</button>
+                            <button class="btn btn-warning btn-lg w-100 buy-btn" data-credits="5000">أضف الى السلة</button>
                         </div>
                     </div>
 
@@ -170,7 +183,7 @@
                                 <span id="price-10000-value"></span>
                                 <img src="Saudi_Riyal_Symbol-1.png" alt="SAR" class="currency-icon">
                             </div>
-                            <button class="btn btn-primary btn-lg w-100 buy-btn" data-credits="10000">شراء الأسطورة</button>
+                            <button class="btn btn-primary btn-lg w-100 buy-btn" data-credits="10000">أضف الى السلة</button>
                         </div>
                     </div>
 
@@ -180,7 +193,7 @@
 
         <section id="trust" class="py-5 bg-dark">
             <div class="container text-center">
-                <h2 class="mb-5 text-uppercase" style="color: var(--trl-primary);">تسليم فوري وموثوق 100%</h2>
+                <h2 class="mb-5 text-uppercase" style="color: var(--trl-primary);">تسليم فوري وموثوق %100</h2>
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <i class="fas fa-stopwatch fa-4x text-success mb-3"></i>
@@ -205,19 +218,6 @@
             <div class="container">
                 <h2 class="text-center mb-4 text-uppercase" style="color: var(--trl-secondary);">الأسئلة الشائعة</h2>
                 <div class="accordion" id="faqAccordion">
-                    
-                    <div class="accordion-item" style="background-color: var(--trl-card-bg); border-color: var(--trl-primary);">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" style="background-color: var(--trl-card-bg);">
-                                كيف يتم توصيل الكريدت لي؟
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body text-white-50">
-                                يتم التوصيل عن طريق **نظام التبادل داخل اللعبة (In-Game Trade)**. بعد إتمام الدفع، سيتواصل معك أحد تجارنا لإتمام عملية التبادل في أقل من 5 دقائق.
-                            </div>
-                        </div>
-                    </div>
                     
                     <div class="accordion-item" style="background-color: var(--trl-card-bg); border-color: var(--trl-primary);">
                         <h2 class="accordion-header" id="headingTwo">
@@ -247,8 +247,17 @@
                 <div class="modal-body">
                     <form id="clientDetailsForm">
                         <div class="mb-3">
-                            <label for="clientNameInput" class="form-label">اسمك أو اسم الديسكورد (للتواصل)</label>
+                            <label for="clientNameInput" class="form-label">اسمك</label>
                             <input type="text" class="form-control bg-dark text-white" id="clientNameInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientDiscordInput" class="form-label">اسم يوزر الديسكورد</label>
+                            <input type="text" class="form-control bg-dark text-white" id="clientDiscordInput" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clientPhoneInput" class="form-label">رقم الجوال</label>
+                            <input type="tel" class="form-control bg-dark text-white" id="clientPhoneInput" pattern="05\d{8}" maxlength="10" required>
+                            <div class="form-text text-danger" id="phoneHelp" style="display: none;">الرقم يجب أن يبدأ بـ 05 ويتكون من 10 أرقام.</div>
                         </div>
                         
                         <button type="submit" class="btn btn-warning w-100 mt-2">تأكيد الطلب والدفع</button>
@@ -258,6 +267,35 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="referenceModal" tabindex="-1" aria-labelledby="referenceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: var(--trl-card-bg); border: 2px solid var(--trl-secondary);">
+                <div class="modal-header">
+                    <h5 class="modal-title text-warning" id="referenceModalLabel"><i class="fas fa-receipt me-2"></i> تم استلام طلبك!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="lead">الرجاء **حفظ ونسخ** رقم طلبك المرجعي:</p>
+                    
+                    <div id="reference-number-display" class="mb-3">
+                        <span id="display-ref-number">TRZ-XXXXXX</span>
+                    </div>
+
+                    <button class="btn btn-primary px-5 w-100 mb-3" id="copy-ref-btn">
+                        <i class="fas fa-copy me-2"></i> نسخ الرقم
+                    </button>
+                    
+                    <p class="text-danger fw-bold">❗ هام جداً: لا تغلق النافذة قبل حفظ الرقم أو نسخه.</p>
+                    <p class="text-white-50">استخدم هذا الرقم للتواصل معنا عبر الديسكورد.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a href="https://discord.gg/XdGxftDVmf" target="_blank" class="btn btn-success"><i class="fab fa-discord me-2"></i> تواصل عبر الديسكورد</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -288,7 +326,7 @@
         <div class="container">
             <h4 class="mb-4 text-warning">TRZ STORE | متجر الكريدت</h4>
             <div class="mb-4">
-                <a href="[ضع رابط دعوة سيرفر ديسكورد هنا]" class="text-white mx-3"><i class="fab fa-discord fa-2x"></i></a>
+                <a href="https://discord.gg/XdGxftDVmf" class="text-white mx-3"><i class="fab fa-discord fa-2x"></i></a>
             </div>
             <p class="text-white-50">&copy; 2025 TRZ STORE. جميع الحقوق محفوظة. الأسعار قابلة للتغيير.</p>
         </div>
@@ -309,13 +347,12 @@
         let cart = []; 
 
         // 🛑 متغير الويب هوك: يجب استبدال هذا الرابط برابطك الحقيقي 🛑
-        const DISCORD_WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1450196567473524927/4VgecsNoe5ghozrmixTNcD6wmPUaIcIZL6Cs4vZCdQb3I6e7z-noQg4AlmnQh_V0ILsl'; 
+        const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1450196567473524927/4VgecsNoe5ghozrmixTNcD6wmPUaIcIZL6Cs4vZCdQb3I6e7z-noQg4AlmnQh_V0ILsl'; 
         
         /*
         * دالة توليد رقم مرجعي عشوائي للطلب
         */
         function generateReferenceNumber() {
-            // توليد رقم مرجعي فريد يتكون من 8 أحرف وأرقام
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             let ref = 'TRZ-';
             for (let i = 0; i < 8; i++) {
@@ -397,20 +434,20 @@
         }
 
         /*
-        * 6. وظيفة إرسال الويب هوك للديسكورد
+        * 6. وظيفة إرسال الويب هوك للديسكورد (تم تعديلها لفتح النافذة الجديدة)
         */
-        const sendDiscordWebhook = (name, referenceNumber) => {
+        const sendDiscordWebhook = (name, discordUser, phone, referenceNumber) => {
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             const cartDetails = cart.map(item => 
                 `${item.name} (${item.quantity}x) بسعر ${item.price * item.quantity} ريال`).join('\n');
 
             const payload = {
-                username: "طلبات عملاء TRZ STORE",
+                username: "TRZ STORE طلبات عملاء",
                 embeds: [{
                     title: `✅ طلب جديد: #${referenceNumber}`,
-                    description: `**تفاصيل العميل:**\n> الاسم/الديسكورد: ${name}\n\n**المنتجات المطلوبة:**\n${cartDetails}\n\n**الإجمالي:** ${total} ريال`,
+                    description: `**تفاصيل العميل:**\n> الاسم: ${name}\n> الديسكورد: ${discordUser}\n> الجوال: ${phone}\n\n**المنتجات المطلوبة:**\n${cartDetails}\n\n**الإجمالي:** ${total} ريال`,
                     color: 3447003, // لون أزرق
-                    footer: { text: "الرجاء التواصل مع العميل عبر الديسكورد باستخدام الرقم المرجعي لإتمام الدفع والتسليم." }
+                    footer: { text: "الرجاء التواصل مع العميل عبر الديسكورد أو الجوال باستخدام الرقم المرجعي لإتمام الدفع والتسليم." }
                 }]
             };
 
@@ -420,8 +457,14 @@
                 body: JSON.stringify(payload)
             }).then(response => {
                 if (response.ok) {
-                    alert(`تم تأكيد طلبك بنجاح! رقمك المرجعي هو: ${referenceNumber}\nالرجاء التواصل معنا عبر الديسكورد وإرسال هذا الرقم لإتمام عملية الدفع والتسليم.`);
-                    // مسح السلة بعد نجاح الإرسال
+                    // 1. تحديث الرقم في النافذة الجديدة
+                    document.getElementById('display-ref-number').textContent = referenceNumber;
+                    
+                    // 2. فتح النافذة المرجعية بدلاً من alert
+                    const referenceModal = new bootstrap.Modal(document.getElementById('referenceModal'));
+                    referenceModal.show();
+                    
+                    // 3. مسح السلة بعد نجاح الإرسال
                     cart = [];
                     updateCartUI(); 
                 } else {
@@ -433,25 +476,69 @@
             });
         };
 
+        /*
+        * 7. دالة نسخ الرقم المرجعي
+        */
+        function copyReferenceNumber() {
+            const refNumber = document.getElementById('display-ref-number').textContent;
+            
+            navigator.clipboard.writeText(refNumber).then(() => {
+                const copyBtn = document.getElementById('copy-ref-btn');
+                const originalText = copyBtn.innerHTML;
+                
+                // إظهار رسالة تأكيد النسخ
+                copyBtn.innerHTML = '<i class="fas fa-check me-2"></i> تم النسخ بنجاح!';
+                copyBtn.classList.remove('btn-primary');
+                copyBtn.classList.add('btn-success');
+
+                // إعادة الزر إلى حالته الأصلية بعد ثوانٍ
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.classList.remove('btn-success');
+                    copyBtn.classList.add('btn-primary');
+                }, 2000);
+                
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+                alert('فشل في نسخ الرقم. يرجى محاولة النسخ يدوياً.');
+            });
+        }
+
 
         /*
-        * 7. معالجة أحداث النقر
+        * 8. معالجة أحداث النقر
         */
         function setupEventListeners() {
             
-            // عند الضغط على زر "تأكيد الطلب والدفع" في النافذة الجديدة
+            // 💥 معالجة زر النسخ في النافذة المرجعية 💥
+            document.getElementById('copy-ref-btn').addEventListener('click', copyReferenceNumber);
+
+            // عند الضغط على زر "تأكيد الطلب والدفع" في النافذة
             document.getElementById('clientDetailsForm').addEventListener('submit', (e) => {
                 e.preventDefault();
                 
                 const clientName = document.getElementById('clientNameInput').value;
-                const referenceNumber = generateReferenceNumber(); // توليد رقم مرجعي
+                const clientDiscord = document.getElementById('clientDiscordInput').value;
+                const clientPhone = document.getElementById('clientPhoneInput').value;
+                const referenceNumber = generateReferenceNumber(); 
                 
+                // التحقق من رقم الجوال (يجب أن يبدأ بـ 05 ويتكون من 10 أرقام)
+                const phoneRegex = /^05\d{8}$/;
+                const phoneHelpElement = document.getElementById('phoneHelp');
+
+                if (!phoneRegex.test(clientPhone)) {
+                    phoneHelpElement.style.display = 'block';
+                    return; 
+                } else {
+                    phoneHelpElement.style.display = 'none';
+                }
+
                 // إغلاق نافذة البيانات
                 const detailsModal = bootstrap.Modal.getInstance(document.getElementById('clientDetailsModal'));
                 detailsModal.hide();
 
-                // إرسال الطلب عبر الويب هوك مع الرقم المرجعي
-                sendDiscordWebhook(clientName, referenceNumber); 
+                // إرسال الطلب عبر الويب هوك وفتح نافذة الرقم المرجعي
+                sendDiscordWebhook(clientName, clientDiscord, clientPhone, referenceNumber); 
             });
 
 
@@ -467,7 +554,7 @@
                         const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
                         cartModal.show();
                     } else {
-                        alert('خطأ: لم يتم العثور على سعر هذا الباكج!');
+                        alert('خطأ: لم يتم العثور على سعر هذا البكج!');
                     }
                 });
             });
